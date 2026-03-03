@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.HashMap;
 import com.example.demo.repository.WeatherRepository;
 import com.example.demo.entity.WeatherData;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class WeatherService {
@@ -23,6 +25,14 @@ public class WeatherService {
 
     public WeatherService(WeatherRepository weatherRepository) {
         this.weatherRepository = weatherRepository;
+    }
+
+    public List<WeatherData> getAllWeather() {
+        return weatherRepository.findAll();
+    }
+
+    public List<WeatherData> getWeatherByCity(String city) {
+        return weatherRepository.findByCity(city);
     }
 
     public Map<String, Object> getWeather(String city)  {
@@ -52,8 +62,8 @@ public class WeatherService {
             WeatherData weatherData = new WeatherData();
             weatherData.setCity(cityName);
             weatherData.setTemp(temp);
-            weatherData.setCondition(condition);
-
+            weatherData.setWeatherCondition(condition);
+            weatherData.setTimestamp(LocalDateTime.now());
             weatherRepository.save(weatherData);
 
             Map<String, Object> data = new HashMap<>();
@@ -65,10 +75,18 @@ public class WeatherService {
 
 //            return "City: " + cityName + "\nTemp: " + temp + "°C\nCondition: " + condition;
         }
+
         catch (Exception e) {
             Map<String, Object> error = new HashMap<>();
             error.put("error", e.getMessage());
             return error;
         }
+//        public List<WeatherData> getAllWeather() {
+//            return weatherRepository.findAll();
+//        }
+//
+//        public List<WeatherData> getWeatherByCity(String city) {
+//            return weatherRepository.findByCity(city);
+//        }
     }
 }

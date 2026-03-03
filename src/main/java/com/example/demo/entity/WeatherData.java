@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class WeatherData {
@@ -12,6 +13,7 @@ public class WeatherData {
     private String city;
     private double temp;
     private String weatherCondition;
+    private LocalDateTime timestamp;
 
     public Long getId() {
         return id;
@@ -33,12 +35,15 @@ public class WeatherData {
         this.temp = temp;
     }
 
-    public String getCondition() {
+    public String getWeatherCondition() {
         return weatherCondition;
     }
 
-    public void setCondition(String condition) {
+    public void setWeatherCondition(String condition) {
         this.weatherCondition = condition;
     }
+
+    public LocalDateTime getTimestamp() { return timestamp; }
+    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
 
 }

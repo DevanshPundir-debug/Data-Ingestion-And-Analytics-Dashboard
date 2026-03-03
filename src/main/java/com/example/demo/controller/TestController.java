@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.WeatherService;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
+import com.example.demo.entity.WeatherData;
 
 @RestController
 public class TestController {
@@ -33,5 +35,16 @@ public class TestController {
     @GetMapping("/weather")
     public Map<String, Object> weather(@RequestParam String city) {
         return weatherService.getWeather(city);
+    }
+
+    @GetMapping("/weather/history")
+    public List<WeatherData> getWeatherHistory(
+            @RequestParam(required = false) String city) {
+
+        if (city != null) {
+            return weatherService.getWeatherByCity(city);
+        } else {
+            return weatherService.getAllWeather();
+        }
     }
 }
