@@ -45,12 +45,4 @@ public class WeatherData {
 
     public LocalDateTime getTimestamp() { return timestamp; }
     public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
-
-     return new WeatherResponse(
-            data.getCity(),
-                data.getTemp(),
-                        data.getWeatherCondition(),
-                        data.getTimestamp()
-                        );
-
 }
