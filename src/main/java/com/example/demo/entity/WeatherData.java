@@ -11,33 +11,11 @@ public class WeatherData {
     private Long id;
 
     private String city;
-
     private double temp;
-
     private String weatherCondition;
-
     private LocalDateTime timestamp;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public double getTemp() {
-        return temp;
-    }
-
-    public String getWeatherCondition() {
-        return weatherCondition;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
+    //  SETTERS
     public void setCity(String city) {
         this.city = city;
     }
@@ -52,5 +30,22 @@ public class WeatherData {
 
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
+    }
+
+    //  GETTERS
+    public String getCity() {
+        return city;
+    }
+
+    public double getTemp() {
+        return temp;
+    }
+
+    public String getWeatherCondition() {
+        return weatherCondition;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 }
