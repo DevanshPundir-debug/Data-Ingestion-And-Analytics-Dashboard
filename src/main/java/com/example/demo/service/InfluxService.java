@@ -14,7 +14,7 @@ public class InfluxService {
 
     public InfluxService() {
         String url = "http://localhost:8086";
-        String token = "PASTE_YOUR_TOKEN_HERE"; // 🔥 CHANGE THIS
+        String token = "0Ire3dlHNc-PLubBjQegfFa4Bxky__EQjxRds8DeU7zsakV1RA-gVPvukpms7yD3hraL6rf1hCnjyGFBFxSr-Q=="; // isko change krna muhae
         String org = "weather-org";
         String bucket = "weather-data";
 
